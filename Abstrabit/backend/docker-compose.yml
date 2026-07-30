@@ -1,0 +1,44 @@
+services:
+  db:
+    image: ankane/pgvector:v0.5.1
+    container_name: abstrabit-postgres
+    restart: always
+    environment:
+      POSTGRES_USER: postgres
+      POSTGRES_PASSWORD: postgrespassword
+      POSTGRES_DB: abstrabit
+    ports:
+      - "5432:5432"
+    volumes:
+      - pgdata:/var/lib/postgresql/data
+    healthcheck:
+      test: ["CMD-SHELL", "pg_isready -U postgres -d abstrabit"]
+      interval: 5s
+      timeout: 5s
+      retries: 5
+
+  backend:
+    build:
+      context: .
+      dockerfile: Dockerfile
+    container_name: abstrabit-backend
+    restart: always
+    ports:
+      - "5000:5000"
+    environment:
+      NODE_ENV: production
+      PORT: 5000
+      DB_HOST: db
+      DB_PORT: 5432
+      DB_NAME: abstrabit
+      DB_USER: postgres
+      DB_PASSWORD: postgrespassword
+      JWT_SECRET: your_jwt_secret_key_production
+      GEMINI_API_KEY: your_gemini_api_key_production
+      CORS_ORIGIN: https://frontend-psi-two-6dy49lpq2h.vercel.app
+    depends_on:
+      db:
+        condition: service_healthy
+
+volumes:
+  pgdata:
