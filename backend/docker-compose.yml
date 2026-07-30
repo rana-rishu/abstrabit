@@ -28,14 +28,11 @@ services:
     environment:
       NODE_ENV: production
       PORT: 5000
-      DB_HOST: db
-      DB_PORT: 5432
-      DB_NAME: abstrabit
-      DB_USER: postgres
-      DB_PASSWORD: postgrespassword
-      JWT_SECRET: your_jwt_secret_key_production
-      GEMINI_API_KEY: your_gemini_api_key_production
-      CORS_ORIGIN: https://frontend-psi-two-6dy49lpq2h.vercel.app
+      DATABASE_URL: postgresql://postgres:postgrespassword@db:5432/abstrabit
+      JWT_ACCESS_SECRET: abstrabit_production_jwt_access_secret_key_32chars
+      JWT_REFRESH_SECRET: abstrabit_production_jwt_refresh_secret_key_32chars
+      GEMINI_API_KEY: AIzaSy_demo_gemini_api_key_placeholder
+      CORS_ORIGIN: "*"
     depends_on:
       db:
         condition: service_healthy

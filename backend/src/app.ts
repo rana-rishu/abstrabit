@@ -18,6 +18,8 @@ import { logger } from './utils/logger';
 export const createApp = (): Application => {
   const app: Application = express();
 
+  app.set('trust proxy', 1);
+
   // Security & Request Identification Middlewares
   app.use(helmet());
   app.use(

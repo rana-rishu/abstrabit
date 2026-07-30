@@ -1,27 +1,42 @@
 # Dependencies
 node_modules/
-.pnpm-store/
+/.pnp
+.pnp.js
 
-# Build Output
+# Production / Build Output
 dist/
+dist-ssr/
 build/
-.vite/
+*.tsbuildinfo
 
-# Logs
-logs/
-*.log
-npm-debug.log*
-
-# Environment & Credentials
+# Environment Variables & Secrets
 .env
 .env.local
-.env.production
+.env.development.local
+.env.test.local
+.env.production.local
 *.pem
 
-# IDE & System
+# IDE & OS Metadata
 .DS_Store
-.vscode/
+.DS_Store?
+._*
+.Spotlight-V100
+.Trashes
+ehthumbs.db
+Thumbs.db
 .idea/
+.vscode/
+*.suo
+*.ntvs*
+*.njsproj
+*.sln
+*.sw?
 
-# Database data
-pgdata/
+# Vercel & Tool Logs
+.vercel
+npm-debug.log*
+yarn-debug.log*
+yarn-error.log*
+pnpm-debug.log*
+lerna-debug.log*
