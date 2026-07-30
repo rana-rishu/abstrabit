@@ -1,0 +1,22 @@
+{
+  "name": "multi-workspace-document-assistant",
+  "version": "1.0.0",
+  "private": true,
+  "description": "Enterprise Multi-Workspace Document Assistant (RAG & Tool Calling) with PostgreSQL and pgvector",
+  "scripts": {
+    "dev": "concurrently \"npm run dev:server\" \"npm run dev:client\"",
+    "dev:server": "cd Abstrabit/backend && npm run dev",
+    "dev:client": "cd Abstrabit/frontend && npm run dev",
+    "build": "npm run build:server && npm run build:client",
+    "build:server": "cd Abstrabit/backend && npm run build",
+    "build:client": "cd Abstrabit/frontend && npm run build",
+    "lint": "npm run lint:server && npm run lint:client",
+    "lint:server": "cd Abstrabit/backend && npm run lint",
+    "lint:client": "cd Abstrabit/frontend && npm run lint",
+    "docker:up": "cd Abstrabit && docker-compose up -d",
+    "docker:down": "cd Abstrabit && docker-compose down"
+  },
+  "devDependencies": {
+    "concurrently": "^8.2.2"
+  }
+}

@@ -1,0 +1,16 @@
+services:
+  postgres:
+    image: ankane/pgvector:v0.5.1
+    container_name: abstrabit-postgres
+    restart: always
+    environment:
+      POSTGRES_USER: postgres
+      POSTGRES_PASSWORD: postgrespassword
+      POSTGRES_DB: abstrabit
+    ports:
+      - "5432:5432"
+    volumes:
+      - pgdata:/var/lib/postgresql/data
+
+volumes:
+  pgdata:

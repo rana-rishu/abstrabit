@@ -1,0 +1,27 @@
+# Dependencies
+node_modules/
+.pnpm-store/
+
+# Build Output
+dist/
+build/
+.vite/
+
+# Logs
+logs/
+*.log
+npm-debug.log*
+
+# Environment & Credentials
+.env
+.env.local
+.env.production
+*.pem
+
+# IDE & System
+.DS_Store
+.vscode/
+.idea/
+
+# Database data
+pgdata/
