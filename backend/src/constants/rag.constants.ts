@@ -1,7 +1,7 @@
 export const RAG_CONFIG = {
-  EMBEDDING_MODEL: 'text-embedding-004',
+  EMBEDDING_MODEL: 'gemini-embedding-001',
   EMBEDDING_DIMENSION: 768,
-  CHAT_MODEL: 'gemini-2.5-flash',
+  CHAT_MODEL: 'gemini-3.6-flash',
   MAX_TOOL_ITERATIONS: 3,
   DEFAULT_TOP_K: 5,
   CHUNK_SIZE: 500,
